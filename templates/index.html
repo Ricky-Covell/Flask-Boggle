@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boggle</title>
+</head>
+<body>
+    <section id="game-container">
+        <div id="timer-container">
+            <p id="timer"></p>
+        </div>
+    
+        <table>
+            <tbody>
+                {% for row in board %}
+                <tr>
+                    {% for letter in row %}
+                    <td>{{ letter }}</td>
+                    {% endfor %}
+                </tr>
+                {% endfor %}    
+            </tbody>
+        </table>
+    
+        <form id="add-word">
+            <input type="text" name="Enter Word" id="new-word">
+            <button>Submit Guess</button>
+        </form>
+    
+        <div id="status-container">
+            <p id="current-score">Score: 0</p>
+            <p id="word-status"></p>
+        </div>
+    </section>
+
+    <section id="gameover-container" hidden>
+        <div><p>Game Over!</p></div>
+        <div><p id="final-score"></p></div>
+        <div><p id="highscore"></p></div>
+        <div><p id="num-of-plays"></p></div>
+    </section>
+</body>
+
+    <script src="http://unpkg.com/jquery"></script>
+    <script src="https://unpkg.com/axios@0.19.0/dist/axios.js"></script>
+    <script src="/static/boggle.js"></script>
+</html>
